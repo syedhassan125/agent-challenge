@@ -1,3 +1,73 @@
+# Fractio Investor Intelligence Agent
+### Nosana x ElizaOS Builders Challenge 2026
+
+> An AI investment agent for [Fractio](https://github.com/syedhassan125) — a fractional real estate platform on Solana.
+> Deployed on Nosana decentralized GPU infrastructure. Powered by Qwen3.5-27B.
+
+---
+
+## What is This Agent?
+
+**Fractio Agent** is an AI-powered investor intelligence assistant for the Fractio platform — a fractional real estate investment protocol built on the Solana blockchain targeting the GCC real estate market (Bahrain, UAE, Saudi Arabia).
+
+The agent helps investors:
+- **Browse available properties** — live property listings with yield, occupancy, and availability data
+- **Calculate ROI** — instant return projections for any investment amount
+- **Understand the market** — GCC real estate trends, regulations, and investment outlook
+- **Get onboarded** — step-by-step guidance from wallet setup to first investment
+
+### Why This Agent Exists
+
+GCC real estate is one of the world's highest-yield asset classes (6–9% annual yields, no capital gains tax), yet retail investors have been locked out — minimum tickets are typically $100,000+. Fractio tokenizes these properties on Solana, making them accessible at $100/token.
+
+This agent is the 24/7 investor relations layer for that platform — running on Nosana's decentralized GPU network, meaning the AI infrastructure is as decentralized as the blockchain it serves.
+
+### Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Agent Framework | ElizaOS v2 |
+| LLM | Qwen3.5-27B-AWQ-4bit via Nosana |
+| Compute | Nosana Decentralized GPU Network |
+| Blockchain | Solana |
+| Smart Contract | Anchor/Rust (Program ID: `9UppnXx6fQQLz5g7cR2HAye38vSk3C5GANUTMd1aB5zm`) |
+
+### Custom Actions (src/index.ts)
+
+| Action | Trigger | Description |
+|---|---|---|
+| `GET_PROPERTY_INFO` | "show properties", "available investments", country name | Returns live property listings with yield and availability |
+| `CALCULATE_ROI` | Dollar amount, "how much earn", "returns" | Calculates income projections across yield scenarios |
+| `GCC_MARKET_INTEL` | "market trends", "GCC", "Vision 2030" | GCC real estate market intelligence by country |
+| `HOW_IT_WORKS` | "how do I", "get started", "explain process" | End-to-end investor onboarding walkthrough |
+
+### Quick Start
+
+```bash
+git clone https://github.com/syedhassan125/agent-challenge
+cd agent-challenge
+cp .env.example .env
+bun i -g @elizaos/cli
+elizaos dev
+```
+
+Open http://localhost:3000 and ask:
+- *"What properties are available?"*
+- *"How much will I earn if I invest $5,000?"*
+- *"How is the Dubai real estate market doing?"*
+- *"How do I get started?"*
+
+### Deploy to Nosana
+
+```bash
+docker build -t syedhassan125/fractio-agent:latest .
+docker push syedhassan125/fractio-agent:latest
+```
+
+Then deploy via https://dashboard.nosana.com/deploy using `nos_job_def/nosana_eliza_job_definition.json`.
+
+---
+
 # Nosana x ElizaOS Agent Challenge
 
 ![ElizaOS](./assets/NosanaXEliza.jpg)
